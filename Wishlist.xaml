@@ -1,4 +1,10 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Wishlist" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Wishlist" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:ar="clr-namespace:atuipath_utilities.Report;assembly=atuipath_utilities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="suiteid" Type="InArgument(x:String)" />
+    <x:Property Name="ReportIdLocal" Type="InArgument(x:Int32)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -22,6 +28,30 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Platform.SyncObjects</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>atuipath_utilities.Report</x:String>
+      <x:String>ReporterForUiPath.Enums</x:String>
+      <x:String>ReporterForUiPath.Activities</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -30,6 +60,7 @@
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
       <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Data</AssemblyReference>
@@ -46,13 +77,449 @@
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Jira.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>ReporterForUiPath.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>atuipath_utilities</AssemblyReference>
+      <AssemblyReference>ReporterForUiPath</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Wishlist" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Wishlist" sap:VirtualizedContainerService.HintSize="675,8534" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="testid" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
+    <ar:startTest sap:VirtualizedContainerService.HintSize="488,279" sap2010:WorkflowViewState.IdRef="startTest_2" str_in_testName="Adding to the wishlist">
+      <ar:startTest.int_in_ReportId>
+        <InArgument x:TypeArguments="x:Int32">
+          <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">ReportIdLocal</CSharpValue>
+        </InArgument>
+      </ar:startTest.int_in_ReportId>
+      <ar:startTest.str_in_SuiteId>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">suiteid</CSharpValue>
+        </InArgument>
+      </ar:startTest.str_in_SuiteId>
+      <ar:startTest.str_out_TestId>
+        <OutArgument x:TypeArguments="x:String">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">testid</CSharpReference>
+        </OutArgument>
+      </ar:startTest.str_out_TestId>
+    </ar:startTest>
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="488,8232" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+      <TryCatch.Try>
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="486,7387" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Chrome nopCommerce demo store. Wishlist" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="452,7323" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="DebuggerApi" ScopeGuid="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="450,7125" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Default="Delicious pie" Name="reviewTitle1" />
+                    <Variable x:TypeArguments="x:String" Default="The recipe in this book is delicious.A must try for someone who wants delicious pie for family." Name="reviewText1" />
+                    <Variable x:TypeArguments="x:String" Default="Handy camera" Name="reviewTitle2" />
+                    <Variable x:TypeArguments="x:String" Default="You can take it everywhere with you its so portable." Name="reviewText2" />
+                    <Variable x:TypeArguments="x:String" Default="Size problem" Name="reviewTitle3" />
+                    <Variable x:TypeArguments="x:String" Default="What it shows as size is not the real size the measurements are one size down. Otherwise it is a good purchase." Name="reviewText3" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" DisplayName="Click 'Wishlist'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_36" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.ClickType>
+                      <InArgument x:TypeArguments="uix:NClickType">
+                        <CSharpValue x:TypeArguments="uix:NClickType" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">UiPath.UIAutomationNext.Enums.NClickType.Double</CSharpValue>
+                      </InArgument>
+                    </uix:NClick.ClickType>
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/clothing" CVScreenId="7c183298-4d04-4796-8313-978fab61e553" ContentHash="Dlaj8lsPYUO4qz0lsR1Itg" DesignTimeRectangle="950, 147, 41, 45" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='SPAN' aaname='*' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' class='wishlist-label' innertext='Wishlist' /&gt;" Guid="f686d458-17b6-491a-8c62-1c09491d3e06" InformativeScreenshot="9de0166cccf6bbca52680d4dd339e399.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/zIdWfiqHcEqMROWKn_FNKA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Clothing' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="None" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" DisplayName="Click 'IMG(1)'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_37" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.ClickType>
+                      <InArgument x:TypeArguments="uix:NClickType">
+                        <CSharpValue x:TypeArguments="uix:NClickType" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">UiPath.UIAutomationNext.Enums.NClickType.Double</CSharpValue>
+                      </InArgument>
+                    </uix:NClick.ClickType>
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/wishlist" CVScreenId="cface0b1-ed3d-45bc-8d7c-321b303ad498" DesignTimeRectangle="549, 614, 101, 16" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl class='product-name' tableRow='2' tag='A' aaname='First Prize Pies' /&gt;" Guid="d1475c89-c631-472d-9ed1-17183f389d4d" InformativeScreenshot="6617d0b704d9ba3a7e41bc1e83adf6c3.jpg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Wishlist' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="None" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,230" sap2010:WorkflowViewState.IdRef="NMouseScroll_11" InteractionMode="HardwareEvents" MovementUnits="10" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'INPUT AddProductReview_…'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_13" InteractionMode="DebuggerApi" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/first-prize-pies" CVScreenId="67882fd1-03cc-4f74-be3b-e604476bdd80" ContentHash="d8PXVf23Mk-upFB6aIyKTQ" DesignTimeRectangle="484, 359, 400, 40" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='AddProductReview_Title' tag='INPUT' type='text' class='review-title valid' aaname='Review title:' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="5f579afe-3f20-40d4-8ab7-863b2a2cef73" InformativeScreenshot="8f50a61d2f80f7bfd5ad6e863e616a6a.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/ieh_gA-FIkavyCl4iZtvSg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. First Prize Pies' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">reviewTitle1</CSharpValue>
+                      </InArgument>
+                    </uix:NTypeInto.Text>
+                    <uix:NTypeInto.VerifyOptions>
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                      </uix:VerifyExecutionTypeIntoOptions>
+                    </uix:NTypeInto.VerifyOptions>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'TEXTAREA AddProductRevi…'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_14" InteractionMode="DebuggerApi" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/first-prize-pies" CVScreenId="9563988d-01ee-418e-94ab-0b40946a6e49" ContentHash="eXZtZqv-cUWSb7VprDsdCA" DesignTimeRectangle="484, 314, 400, 150" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='AddProductReview_ReviewText' tag='TEXTAREA' type='' class='review-text valid' aaname='Review text:' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="4e5bce32-fb62-40d3-be16-af6db11b3ad0" InformativeScreenshot="90abbb9cdb0a70f6c946ba61c66c58d0.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/NLc0v5iUhEWLhv8qSpr7Fg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. First Prize Pies' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">reviewText1</CSharpValue>
+                      </InArgument>
+                    </uix:NTypeInto.Text>
+                    <uix:NTypeInto.VerifyOptions>
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                      </uix:VerifyExecutionTypeIntoOptions>
+                    </uix:NTypeInto.VerifyOptions>
+                  </uix:NTypeInto>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Radiobutton'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_38" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/first-prize-pies" CVScreenId="da4cada8-e9ef-4e8e-9cea-e61fc3c6403b" ContentHash="EJu9ymXReU-fzjyxyqW51Q" DesignTimeRectangle="586, 493, 13, 13" ElementType="RadioButton" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='addproductrating_5' tag='INPUT' type='radio' class='' aaname='' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="fbd92967-c17b-43e8-8f46-fd77e3689325" InformativeScreenshot="0fecf9c49115aa47bbd01e1e61a29202.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/TE5pRy08oU-ffpXnvQR-yA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. First Prize Pies' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Submit review'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_39" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/first-prize-pies" CVScreenId="df158ae3-a3b8-4156-9035-41ac5a8fd4ee" ContentHash="dVRvY5NeM0aa12ZL7AIh0Q" DesignTimeRectangle="599, 525, 169, 37" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='add-review' tag='BUTTON' /&gt;" Guid="d6cda9b7-1c02-4224-a981-10a206e2965f" InformativeScreenshot="00fe07a7c30ddee4ebc1ed54f5e23e06.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/WwezVvs_IUK6_cuM3dx5sg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. First Prize Pies' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'SPAN'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_40" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/first-prize-pies" CVScreenId="3ab89383-9a30-4624-b41a-78c7d0d85a69" ContentHash="kaW6C74jGUOEZUhva5GbLQ" DesignTimeRectangle="1320, 102, 32, 32" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='SPAN' /&gt;" Guid="12076bb5-a559-4786-ac6f-906b6c91dc48" InformativeScreenshot="805ae908b58009a18a0c32fabf71a5ae.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/t725iKcdy0uWpnZhzZA2Mg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. First Prize Pies' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NMouseScroll KeyModifiers="{x:Null}" DisplayName="Mouse Scroll" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,230" sap2010:WorkflowViewState.IdRef="NMouseScroll_12" InteractionMode="HardwareEvents" MovementUnits="10" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NMouseScroll.Direction>
+                      <InArgument x:TypeArguments="uix:NScrollDirection">
+                        <CSharpValue x:TypeArguments="uix:NScrollDirection" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">UiPath.UIAutomationNext.Enums.NScrollDirection.Up</CSharpValue>
+                      </InArgument>
+                    </uix:NMouseScroll.Direction>
+                  </uix:NMouseScroll>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Wishlist'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_41" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/first-prize-pies" CVScreenId="ec38b8e3-647b-4b6e-a2a7-a23f215899da" ContentHash="JrqqbowqZ0S8Szw5aLi6WA" DesignTimeRectangle="950, 95, 41, 45" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='SPAN' /&gt;" Guid="005d93c8-9550-45ab-a10f-8003a9fa97d7" InformativeScreenshot="5f451dc83d846bb9c3bef52ea1d7723d.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/mF_Da96DgUCNt8Pp2vqM7w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. First Prize Pies' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'IMG(2)'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_42" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/wishlist" CVScreenId="163b2764-99ff-4e90-b9b0-b6f83917232b" ContentHash="KXYCB4dKwkWdSEHTx1x1LA" DesignTimeRectangle="428, 352, 80, 81" ElementType="Icon" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='IMG' class='' aaname='Show details for Apple iCam' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="66ebf942-969b-4a0f-ae08-0e1fe827728d" InformativeScreenshot="e5d976c290ea2a2a4fb001ec7c3b59b5.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/-QBviJB2HUm1QRQVrKz7Yg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Wishlist' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,230" sap2010:WorkflowViewState.IdRef="NMouseScroll_13" InteractionMode="HardwareEvents" MovementUnits="5" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'INPUT AddProductReview_…(1)'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_15" InteractionMode="SameAsCard" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/apple-icam" CVScreenId="bd54fffd-8caa-4b13-b6e0-a7e8ee077def" ContentHash="uBQ9cDVneEe0mJPuZH2PEw" DesignTimeRectangle="484, 317, 400, 40" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='AddProductReview_Title' tag='INPUT' type='text' class='review-title' aaname='Review title:' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="507ea467-5cda-4602-8db5-c59f9ab2ad3c" InformativeScreenshot="8f50a61d2f80f7bfd5ad6e863e616a6a.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/sQ6K508TEESddrpHR74dNQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Apple iCam' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">reviewTitle2</CSharpValue>
+                      </InArgument>
+                    </uix:NTypeInto.Text>
+                    <uix:NTypeInto.VerifyOptions>
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                      </uix:VerifyExecutionTypeIntoOptions>
+                    </uix:NTypeInto.VerifyOptions>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'TEXTAREA AddProductRevi…(1)'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_16" InteractionMode="SameAsCard" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/apple-icam" CVScreenId="56523771-6330-4f79-ac6b-15f13dbc1e8f" ContentHash="yOaKyfvdtU-yRgfJof55Kg" DesignTimeRectangle="484, 372, 400, 150" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='AddProductReview_ReviewText' tag='TEXTAREA' type='' class='review-text' aaname='Review text:' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="19f50936-8d38-451c-98d4-8f32cf177374" InformativeScreenshot="90abbb9cdb0a70f6c946ba61c66c58d0.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/1h-lkzVuxkKM5F2BqMwz9A" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Apple iCam' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">reviewText2</CSharpValue>
+                      </InArgument>
+                    </uix:NTypeInto.Text>
+                    <uix:NTypeInto.VerifyOptions>
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                      </uix:VerifyExecutionTypeIntoOptions>
+                    </uix:NTypeInto.VerifyOptions>
+                  </uix:NTypeInto>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Radiobutton(1)'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_43" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/apple-icam" CVScreenId="e1234594-b384-4bb0-9cb8-b7b1d9376e7d" ContentHash="-HFJxPC9cECmmKv91wEYVA" DesignTimeRectangle="586, 550, 13, 13" ElementType="RadioButton" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='addproductrating_5' tag='INPUT' type='radio' class='' aaname='' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="153fe6ba-7bb1-48bd-8954-a2d6c8229617" InformativeScreenshot="d2b739f4b51b7201a3a4c006ca71c163.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/I_tDsBnWwk2GLQbPl2JTUw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Apple iCam' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Submit review(1)'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_44" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/apple-icam" CVScreenId="e92e8f5a-6695-4d98-b732-1724fe51bb3a" ContentHash="DyPpJyQtBUCWf2jmiRLKog" DesignTimeRectangle="599, 534, 169, 37" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='add-review' tag='BUTTON' /&gt;" Guid="2b9e37b1-d50e-410d-9a0e-dc3aba854f2c" InformativeScreenshot="00fe07a7c30ddee4ebc1ed54f5e23e06.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/K4XaKzD1J0yGA_tN5c1spA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Apple iCam' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'SPAN(2)'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_45" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/apple-icam" CVScreenId="fce4566d-6dea-4f81-8184-0d9986557031" ContentHash="-_TbsWGu_EG64aYvS0Nrfw" DesignTimeRectangle="1320, 102, 32, 32" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='SPAN' /&gt;" Guid="a82ac056-5be1-4a29-81b5-a0426d8dee3d" InformativeScreenshot="70e189a99f7e9e265be6df7f628d82cc.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/y0KCry-_b0C49lDpvecGGw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Apple iCam' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NMouseScroll KeyModifiers="{x:Null}" DisplayName="Mouse Scroll" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,230" sap2010:WorkflowViewState.IdRef="NMouseScroll_14" InteractionMode="HardwareEvents" MovementUnits="36" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NMouseScroll.Direction>
+                      <InArgument x:TypeArguments="uix:NScrollDirection">
+                        <CSharpValue x:TypeArguments="uix:NScrollDirection" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">UiPath.UIAutomationNext.Enums.NScrollDirection.Up</CSharpValue>
+                      </InArgument>
+                    </uix:NMouseScroll.Direction>
+                  </uix:NMouseScroll>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Wishlist'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_46" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/apple-icam" CVScreenId="76581c28-85b6-473f-a2e3-226a963013ec" ContentHash="RAQwrSEz90qYDxZKeRiHWg" DesignTimeRectangle="943, 95, 42, 45" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='SPAN' /&gt;" Guid="f9d225b6-d13e-4185-933d-8268a01469a0" InformativeScreenshot="7a49729c76b4aab35470b6f1fe04571e.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/QdUp0Q_uJUOernWdsm57lQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Apple iCam' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Levi's 511 Jeans'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_47" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/wishlist" CVScreenId="7f8ce2e4-3c59-4c7d-91e6-ca337a088adc" ContentHash="8_mdxk8fc0WBxXqtBMJnJA" CvElementArea="426, 373, 84, 87" CvType="Icon" DesignTimeRectangle="428, 377, 80, 80" ElementType="Icon" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='IMG' class='' aaname='Show details for Levi&amp;apos;s 511 Jeans' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="15695185-015f-4e8b-b83c-87a95a48a59a" ImageBase64="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" InformativeScreenshot="023e0275e27e848b8fef48f0e0cccf51.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/MWtlEW0Z1UC1m6hKY1Oj5Q" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Wishlist' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="7f8ce2e4-3c59-4c7d-91e6-ca337a088adc" DesignTimeRectangle="549, 411, 109, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl class='product-name' type='' tag='A' aaname='Levi&amp;apos;s 511 Jeans' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Levi&amp;apos;s 511 Jeans' /&gt;" Guid="9b09062a-35ee-435e-8e48-7bee7fb54807" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,230" sap2010:WorkflowViewState.IdRef="NMouseScroll_15" InteractionMode="HardwareEvents" MovementUnits="15" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5" />
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'INPUT AddProductReview_…(2)'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_17" InteractionMode="SameAsCard" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/levis-511-jeans" CVScreenId="1f8f791b-5491-4379-a9fc-0acda3173db6" ContentHash="u_KdogjMUESIDLwGb_S-AA" DesignTimeRectangle="484, 260, 400, 40" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='AddProductReview_Title' tag='INPUT' type='text' class='review-title' aaname='Review title:' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="32f5c002-45cd-4e24-8bda-c513abe849c7" InformativeScreenshot="8f50a61d2f80f7bfd5ad6e863e616a6a.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/_Z_w0G4BXEK7DR32SBjlSw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Levi&amp;apos;s 511 Jeans' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">reviewTitle3</CSharpValue>
+                      </InArgument>
+                    </uix:NTypeInto.Text>
+                    <uix:NTypeInto.VerifyOptions>
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                      </uix:VerifyExecutionTypeIntoOptions>
+                    </uix:NTypeInto.VerifyOptions>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" ClipboardMode="Never" DisplayName="Type Into 'TEXTAREA AddProductRevi…(2)'" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_18" InteractionMode="SameAsCard" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/levis-511-jeans" CVScreenId="389aac3c-5dc8-49d4-981d-9560f9f16407" ContentHash="7bYfdzWqc0WHkTkORuPu9A" DesignTimeRectangle="484, 215, 400, 150" ElementType="InputBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='AddProductReview_ReviewText' tag='TEXTAREA' type='' class='review-text' aaname='Review text:' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="32c3fb51-46f7-47ed-9598-29a697ab523a" InformativeScreenshot="90abbb9cdb0a70f6c946ba61c66c58d0.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/ZAucUfdDRkWFDjDRbUo93Q" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Levi&amp;apos;s 511 Jeans' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">reviewText3</CSharpValue>
+                      </InArgument>
+                    </uix:NTypeInto.Text>
+                    <uix:NTypeInto.VerifyOptions>
+                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionTypeIntoOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionTypeIntoOptions.Retry>
+                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                      </uix:VerifyExecutionTypeIntoOptions>
+                    </uix:NTypeInto.VerifyOptions>
+                  </uix:NTypeInto>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Radiobutton(2)'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_48" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/levis-511-jeans" CVScreenId="389aac3c-5dc8-49d4-981d-9560f9f16407" ContentHash="I9we9Zqbd0mucqH8G8Jgnw" DesignTimeRectangle="535, 394, 13, 13" ElementType="RadioButton" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl id='addproductrating_2' tag='INPUT' type='radio' class='' aaname='' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="dbaf1297-6cc2-4602-b6a9-616f07473fe9" InformativeScreenshot="8121f8fdcecdbb90d0d8dedee5a6ba5f.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/Bn2Z1tvV2EuKOI_KqM6Dew" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Levi&amp;apos;s 511 Jeans' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Submit review(2)'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_49" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/levis-511-jeans" CVScreenId="82965b4b-2b76-4f2b-9e99-715bd1413ae9" ContentHash="YL8DsMOtzkCSWzbSliwmUw" DesignTimeRectangle="599, 534, 169, 37" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl id='add-review' tag='BUTTON' /&gt;" Guid="e7b259c3-cb6d-47cf-a598-ca4d879724ad" InformativeScreenshot="00fe07a7c30ddee4ebc1ed54f5e23e06.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/9ic0G0aVZkOjGTBJeDCt9Q" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Levi&amp;apos;s 511 Jeans' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'SPAN(3)'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_50" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/levis-511-jeans" CVScreenId="7eabb3bf-424f-4b40-a8a8-7da1de102731" ContentHash="Zlnr6SoUDkqsVcjLq_SZBQ" DesignTimeRectangle="1320, 102, 32, 32" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='SPAN' /&gt;" Guid="fc9bf1a3-24a7-4374-878a-1c2671424d81" InformativeScreenshot="70e189a99f7e9e265be6df7f628d82cc.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/a2MxFY7A7Ua2zDW3gMrbJA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Levi&amp;apos;s 511 Jeans' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NMouseScroll KeyModifiers="{x:Null}" DisplayName="Mouse Scroll" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,230" sap2010:WorkflowViewState.IdRef="NMouseScroll_16" InteractionMode="HardwareEvents" MovementUnits="36" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NMouseScroll.Direction>
+                      <InArgument x:TypeArguments="uix:NScrollDirection">
+                        <CSharpValue x:TypeArguments="uix:NScrollDirection" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">UiPath.UIAutomationNext.Enums.NScrollDirection.Up</CSharpValue>
+                      </InArgument>
+                    </uix:NMouseScroll.Direction>
+                  </uix:NMouseScroll>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Wishlist(1)'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_51" InteractionMode="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/levis-511-jeans" CVScreenId="77d8b03a-38d3-48ea-b2ff-d554cc75fb6c" ContentHash="cN1EeHClG0mDO9a1csb39g" DesignTimeRectangle="943, 95, 42, 45" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='SPAN' /&gt;" Guid="7570cf4d-d2c8-4306-a513-a4a86b4593ff" InformativeScreenshot="0705cba0a278a4555f3f9f706ebce32d.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/pdYFReaqyUqAConhDQS0bg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Levi&amp;apos;s 511 Jeans' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Mouse Scroll" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,230" sap2010:WorkflowViewState.IdRef="NMouseScroll_17" InteractionMode="HardwareEvents" MovementUnits="4" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5" />
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'FIRST_PRP'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_52" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/wishlist" CVScreenId="332f8999-2a1e-4c3d-88ec-de7a0b372b41" CvElementArea="230, 263, 16, 15" CvType="CheckBox" DesignTimeRectangle="232, 264, 13, 13" ElementType="CheckBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='addtocart-80' type='checkbox' tag='INPUT' class='' aaname='Add to cart:' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="3b2fee22-c79e-41fe-b865-0823a0ae1549" InformativeScreenshot="1587cb8eecd3a62140901d4d65b40a4f.jpg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Wishlist' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="332f8999-2a1e-4c3d-88ec-de7a0b372b41" CvTextArea="302, 263, 79, 16" CvTextArgument="FIRST_PRP" CvType="Text" DesignTimeRectangle="303, 262, 77, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='sku-number' aaname='FIRST_PRP' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='FIRST_PRP' /&gt;" Guid="f83c2a3a-6823-4a53-b743-42502635dfd5" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'APPLE_CAM'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_53" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/wishlist" DesignTimeRectangle="232, 389, 13, 13" ElementType="CheckBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='addtocart-81' type='checkbox' tag='INPUT' class='' aaname='Add to cart:' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="749f37da-15eb-41e7-9cae-ee61f6e67b81" InformativeScreenshot="1c87f3bc34f0e643ea453deace9ed3c4.jpg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Wishlist' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="332f8999-2a1e-4c3d-88ec-de7a0b372b41" CvTextArea="301, 387, 87, 16" CvTextArgument="APPLE_CAM" CvType="Text" DesignTimeRectangle="303, 386, 84, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='sku-number' aaname='APPLE_CAM' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='APPLE_CAM' /&gt;" Guid="8bfbb133-2259-4a85-84f5-b82efd9e2f32" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'LV_511_JN'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,198" sap2010:WorkflowViewState.IdRef="NClick_54" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/wishlist" DesignTimeRectangle="232, 513, 13, 13" ElementType="CheckBox" ElementVisibilityArgument="Interactive" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl id='addtocart-82' type='checkbox' tag='INPUT' class='' aaname='Add to cart:' matching:id='fuzzy' fuzzylevel:id='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="0b173d0a-2788-4117-9507-98acfe116ba0" InformativeScreenshot="6139de0602af7e81dc6d2f7bbe858749.jpg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Wishlist' /&gt;" SearchSteps="FuzzySelector" Version="V6" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="332f8999-2a1e-4c3d-88ec-de7a0b372b41" DesignTimeRectangle="303, 511, 71, 16" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='SPAN' class='sku-number' aaname='LV_511_JN' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='LV_511_JN' /&gt;" Guid="4ff0666c-926a-49c7-916c-f8691c9e41cc" SearchSteps="FuzzySelector" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Add to cart'" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,189" sap2010:WorkflowViewState.IdRef="NClick_55" InteractionMode="DebuggerApi" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="c210a695-584c-40ef-8d6d-ee2be573d1a2" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="demo.nopcommerce.com/wishlist" CVScreenId="2cd8068d-4276-4f82-ab73-fa7dc3da5661" ContentHash="jE7uAMIXCEy6asrXiw978w" DesignTimeRectangle="630, 611, 150, 40" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;webctrl tag='BUTTON' type='submit' aaname='Add to cart' /&gt;" Guid="2a904246-5b71-4e5b-9084-9e94988a5ae7" InformativeScreenshot="fc33ac918b90eef8b2868a2c40ec1d55.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/9M-V0XUurk2GTcrDacPB2w" ScopeSelectorArgument="&lt;html app='chrome.exe' title='nopCommerce demo store. Wishlist' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="None" />
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.OCREngine>
+              <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+                <ActivityFunc.Argument>
+                  <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                </ActivityFunc.Argument>
+              </ActivityFunc>
+            </uix:NApplicationCard.OCREngine>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="-8, -8, 1382, 736" BrowserType="Chrome" ContentHash="XcFIPplbIUWlrusr42XkDQ" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGrSURBVDhPxZI7SNZhFMa9JQlRS4HgkAhPUUMmYkpIOknSUOFQfBHkYItDs34Q0uCFoByaglxEqMkhGkKILhBPlyUIokH7QQ0Ozi5Kyek7f/gXTi6+y3tu7/Oe55ynrm4/jky9zIG4/8/temRaZU7INMockbkr80LmdrkoUA/m3SYzLtMv0y3zUeaXzKDMNZltmT8y78sAl2ReylyVWcyCpzKTaW8kYK/MB5l3MpeLxy0yKzKbMjdklmVWZUZkOmQmZIaSQnR4UqYz5lAANMhcCUSZ5kz2ZbxH5r7M9Xw8IPNJ5odMtQA4LfNY5qbMOZnPMm+SfxQHhe85m4X0azOQaSpxjuRM2l9kLiSV8JdyyGMyP2W+ylQCIHhNy7zKdqODh9lqUIi7InMsu439d8mcinwROCvTnhwjGZs4FI9ygHMyxxNgWOZtbmEkAlWZdZl5mfMy5J5HZe6V+E7JHJZxKfYtANbSeSRzJ+0tmVsyz9L/nblQYYiqAHgdAME/BhRSPZMSnc3fLqY+HsgcLVF4LvMk1l1soSaIWkFMujHtQt5//VJNaOWf2J7PDjUun3NPOXFfAAAAAElFTkSuQmCC" InformativeScreenshot="1f8d7aafabeb9511246c999e53aabd43.jpg" Reference="czEP_dOuJkecQ7Up8Z1FKw/lyGrIT1XAUOOTpMC93QWnA" Selector="&lt;html app='chrome.exe' title='nopCommerce demo store. Wishlist' /&gt;" Url="https://demo.nopcommerce.com/wishlist" Version="V2">
+                <uix:TargetApp.Arguments>
+                  <InArgument x:TypeArguments="x:String" />
+                </uix:TargetApp.Arguments>
+                <uix:TargetApp.WorkingDirectory>
+                  <InArgument x:TypeArguments="x:String" />
+                </uix:TargetApp.WorkingDirectory>
+              </uix:TargetApp>
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="486,442" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ar:exceptionStep sap:VirtualizedContainerService.HintSize="452,378" sap2010:WorkflowViewState.IdRef="exceptionStep_2" str_in_actualStep="exception" str_in_expectedStep="exception" str_in_stepDescription="exception" str_in_stepName="exception">
+                <ar:exceptionStep.str_in_reportId>
+                  <InArgument x:TypeArguments="x:Int32">
+                    <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">ReportIdLocal</CSharpValue>
+                  </InArgument>
+                </ar:exceptionStep.str_in_reportId>
+                <ar:exceptionStep.str_in_testId>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">testid</CSharpValue>
+                  </InArgument>
+                </ar:exceptionStep.str_in_testId>
+              </ar:exceptionStep>
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="486,234" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="452,170" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+            <ui:LogMessage.Message>
+              <InArgument x:TypeArguments="x:Object">
+                <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">"Script runned successfully"</CSharpValue>
+              </InArgument>
+            </ui:LogMessage.Message>
+          </ui:LogMessage>
+        </Sequence>
+      </TryCatch.Finally>
+    </TryCatch>
   </Sequence>
 </Activity>
